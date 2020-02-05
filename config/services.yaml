@@ -30,3 +30,9 @@ services:
         tags:
             - { name: 'app.email_sender_interceptor.before', priority: 1 }
             - { name: 'app.email_sender_interceptor.after', priority: 1 }
+
+    App\Domain\EmailSenderInterceptor\BlacklistInterceptor:
+        arguments:
+            - ['fraud@example.org']
+        tags:
+            - { name: 'app.email_sender_interceptor.before', priority: -10 }
