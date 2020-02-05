@@ -25,3 +25,8 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Domain\EmailSenderInterceptor\BenchmarkInterceptor:
+        tags:
+            - { name: 'app.email_sender_interceptor.before', priority: 1 }
+            - { name: 'app.email_sender_interceptor.after', priority: 1 }
